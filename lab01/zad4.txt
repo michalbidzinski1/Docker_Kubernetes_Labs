@@ -1,0 +1,2 @@
+docker rm -  usuwa kontener po nazwie/id.
+docker system prune - usuwa wszystkie nieużywane kontenery.

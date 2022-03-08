@@ -1,1 +1,11 @@
-docker pull  hello-world
+docker pull  hello-world - pobiera kontener hello-world
+docker ps - pokazuje wystartowane kontenery
+docker start - startuje zainstalowany kontener
+docker create - tworzy kontener
+docker run 'name' - tworzy i startuje kontener
+docker start -a  - Podłącz STDOUT/STDERR i sygnały przekierowujące
+docker ps - kontenery uruchomione
+docker ps -a - wszystkie kontenery
+docker ps -l - najnowsze kontenery
+docker rm - po prostu usuwa kontener po nazwie/id
+docker system prune - usuwa wszystkie nieużywane kontenery.
