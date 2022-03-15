@@ -9,3 +9,4 @@ docker ps -a - wszystkie kontenery
 docker ps -l - najnowsze kontenery
 docker rm - po prostu usuwa kontener po nazwie/id
 docker system prune - usuwa wszystkie nieużywane kontenery.
+docker run -it 'nazwa kontenera' sh - pozwala  uruchomic powłokę systemową kontenera
