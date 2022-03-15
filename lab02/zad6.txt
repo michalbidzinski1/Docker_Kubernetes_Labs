@@ -1,1 +1,1 @@
-docker create --name my_container busybox
+docker create --name my_container busybox echo "Hello world from my container"
