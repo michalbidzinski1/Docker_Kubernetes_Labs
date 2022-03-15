@@ -1,0 +1,4 @@
+Jeśli uruchomimy nowy kontener komendą "docker run -it busybox sh" to nie będzie istniał tam
+plik readme.txt. Natomiast w kontenerze, w którym utworzyliśmy ten plik, nadal będzie istniał. Musimy jednak wejsc do tego kontenera komenda:
+"docker exec -it nazwa_kontenera sh". Wniosek jest taki, że pliki zapisując się tylko w kontenerze w którym je utworzyliśmy, bez względu na fakt,
+że oba kontenery są kontenerami busybox.
