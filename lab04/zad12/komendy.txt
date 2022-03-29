@@ -1,0 +1,6 @@
+FROM - zadeklarowanie jakiego obrazu uzywamy
+RUN - instalowanie pakietów i zależności, budowanie obrazu, można wykonywać wiele poleceń RUN
+WORKDIR – folder roboczy aplikacji
+COPY – kopiowanie plików aplikacji do folderu roboczego
+EXPOSE – otwarcie portu na numer 8080,
+CMD  - komenda która kontener wykonuje kiedy budujemy obraz. Dockerfile może miec tylko jedna komende CMD
