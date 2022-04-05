@@ -1,0 +1,13 @@
+docker network create firstNetwork
+docker run -itd --network=firstNetwork nginx
+docker network inspect firstNetwork
+
+     "Containers": {
+            "347d4ac101a4fe6c97b2ba146e0df0e28c78f1692a3767e1119a6ab8758a7298": {
+                "Name": "admiring_hugle",
+                "EndpointID": "bdd6eaf3221c93dd917a3ed290d2c419b6dbf7b69e9090f946030b1ca53b37e3",
+                "MacAddress": "02:42:ac:17:00:02",
+                "IPv4Address": "172.23.0.2/16",
+                "IPv6Address": ""
+            }
+Podłączony jest kontener nginx

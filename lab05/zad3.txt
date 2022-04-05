@@ -1,0 +1,4 @@
+docker network connect firstNetwork first
+docker network inspect firstNetwork
+Są podłączone do innych sieci:  "172.23.0.2/16" i  "172.23.0.3/16",
+docker network disconnect bridge first

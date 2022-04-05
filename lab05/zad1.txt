@@ -1,0 +1,3 @@
+docker run --name first -d nginx
+docker inspect first
+Podłączony do sieci 172.17.0.2
