@@ -1,0 +1,8 @@
+npm install dotenv, express, pg, redis, ioredis
+
+docker network create PgRedisNetwork
+docker run --name node-postgres --network PgRedisNetwork -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:alpine
+docker run --name node-redis --network PgRedisNetwork -p 6379:6379 redis:alpine redis-server
+docker build -t server-api .
+
+docker run --name connectionDB1 --network PgRedisNetwork -e REDIS_HOST=node-redis -e REDIS_PORT=6379 -e POSTGRES_HOST=node-postgres -e POSTGRES_PORT=5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -p 5000:5000 server-js

@@ -1,0 +1,35 @@
+
+docker run --rm --name my-postgres -e POSTGRES_PASSWORD=password -v /home/mkl1337/TC/lab05/zad5/pgdata:/var/lib/postgresql/data postgres:alpine
+docker exec -it my-postgres sh
+su - postgres
+psql
+CREATE USER mkl WITH PASSWORD 'pswd';
+CREATE DATABASE postgres_db OWNER mkl;
+sudo su - mkl
+psql postgres_db 
+CREATE TABLE my_table (
+name varchar,
+last_name varchar,
+age int
+);
+INSERT INTO my_table(name, last_name, age) VALUES ('michal', 'bidzinski', 20);
+
+postgres=# SELECT * FROM my_table;
+  name  | last_name | age
+--------+-----------+-----
+ michal | bidzinski |  20
+(1 row)
+
+docker stop dcc92ad2cfef
+docker run --rm --name my-postgres -e POSTGRES_PASSWORD=password -v /home/mkl1337/TC/lab05/zad5/pgdata:/var/lib/postgresql/data postgres:alpine
+docker exec -it my-postgres sh
+su - postgres
+psql
+
+postgres=# SELECT * FROM my_table;
+  name  | last_name | age
+--------+-----------+-----
+ michal | bidzinski |  20
+(1 row)
+
+Dane nadal istnieją

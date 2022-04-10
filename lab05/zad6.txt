@@ -1,0 +1,24 @@
+docker network create BigNetwork
+
+docker run -e POSTGRES_PASSWORD=password --name big-postgres --network BigNetwork postgres:alpine
+
+docker run --name big-redis -it redis:alpine sh
+docker network connect BigNetwork big-redis
+docker network inspect BigNetwork 
+
+ "Containers": {
+            "17cb24901311260579bb5a5f9c6f395c32c2cf292e420c73d5484cbb7a78a155": {
+                "Name": "big-postgres",
+                "EndpointID": "c550df354c1b8cebdb85e2288796b3014894ac8df7da20680eff2391776ef4a5",
+                "MacAddress": "02:42:ac:13:00:02",
+                "IPv4Address": "172.19.0.2/16",
+                "IPv6Address": ""
+            },
+            "a272ae6d151c653e7ddd58e932e280ac822225874421d6134d3d4924315756c2": {
+                "Name": "big-redis",
+                "EndpointID": "3582a6992590ada96b3037edf2508e7b384a4cd5fd46f925b4fd54d8bb0ef9da",
+                "MacAddress": "02:42:ac:13:00:03",
+                "IPv4Address": "172.19.0.3/16",
+                "IPv6Address": ""
+            }
+        },
