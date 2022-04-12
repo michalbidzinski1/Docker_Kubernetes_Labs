@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: ./backend
+    environment:
+      - PGPORT=5000
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5000:5000

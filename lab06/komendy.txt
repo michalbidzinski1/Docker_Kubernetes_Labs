@@ -1,0 +1,4 @@
+docker-compose up  : buduje kontenery
+docker-compose up -d : startuje kontenery w tle
+docker-compose stop : zatrzymuje kontener
+docker-compose down -- volumes : zatrzymuje kontener i wolumeny zadeklarowane w docker-compose
