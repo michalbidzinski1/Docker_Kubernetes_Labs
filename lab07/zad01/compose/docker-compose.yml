@@ -2,29 +2,17 @@ version: "3"
 
 services:
   myredis:
-    image: "redis:alpine"
+    image: redis
     container_name: myredis
-    ports:
-      - 6379:6379
-  mypostgres:
-    image: "postgres:alpine"
-    container_name: mypostgres
-    environment:
-      - POSTGRES_PASSWORD=postgres
-    ports:
-      - 5432:5432
-  myapi:
+
+  api:
     build:
       dockerfile: Dockerfile.dev
       context: ./backend
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PORT=5432
-      - POSTGRES_HOST=mypostgres
-      - REDIS_PORT=6379
       - REDIS_HOST=myredis
+      - REDIS_PORT=6379
+
     ports:
       - 3000:3000
 
