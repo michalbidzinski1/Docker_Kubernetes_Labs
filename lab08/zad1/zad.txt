@@ -1,0 +1,4 @@
+
+docker build image-nginx .
+kubectl apply -f my-nginx-pod.yaml  -  tworzenie poda
+kubectl cp default/my-nginx-pod:usr/share/nginx/html/index.html ./index.html - skopiowanie pliku index.html z poda na local

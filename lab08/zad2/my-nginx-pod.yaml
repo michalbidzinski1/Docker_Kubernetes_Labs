@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-nginx-pod-wget
+spec:
+  containers:
+    - name: my-nginx
+      image: image-nginx
+      imagePullPolicy: Never
+      lifecycle:
+        postStart:
+          exec:
+            command: ["wget", "localhost:80"]
