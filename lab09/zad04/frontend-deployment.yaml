@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: mynginx-deployment
+  labels:
+    app: myapp
+    type: frontend
+
+spec:
+  template:
+    metadata:
+      labels:
+        name: frontend
+        type: frontend
+    spec:
+      containers:
+        - name: my-nginx-container
+          image: frontend
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
+  replicas: 2
+  selector:
+    matchLabels:
+      type: frontend

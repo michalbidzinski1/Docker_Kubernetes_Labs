@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: mybackend-deployment
+  labels:
+    app: mybackend
+    type: backend
+
+spec:
+  template:
+    metadata:
+      name: mybackend-pod
+      labels:
+        app: mybackend
+        type: backend
+    spec:
+      containers:
+        - name: my-backend-container
+          image: backend
+          imagePullPolicy: Never
+
+  replicas: 2
+  selector:
+    matchLabels:
+      type: backend
