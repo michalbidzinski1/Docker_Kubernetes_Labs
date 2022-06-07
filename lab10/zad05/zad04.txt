@@ -1,0 +1,7 @@
+cd backend
+docker build -t backend .
+cd ..
+cd frontend
+docker build -t frontend .
+cd ..
+kubectl apply -f .

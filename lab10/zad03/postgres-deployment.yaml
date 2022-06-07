@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: postgres-deployment
+  labels:
+    type: postgres
+
+spec:
+  template:
+    metadata:
+      name: pg
+      labels:
+        type: pod-pg
+
+    spec:
+      containers:
+        - name: postgres-pod
+          image: postgres:alpine
+          volumeMounts:
+            - name: postgres-volume
+              mountPath: /var/lib/postgresql/data
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-configmap
+                  key: POSTGRES_DB
+
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-configmap
+                  key: POSTGRES_USER
+
+            - name: POSTGRES_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-configmap
+                  key: POSTGRES_PORT
+
+            - name: POSTGRES_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-configmap
+                  key: POSTGRES_HOST
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pass-secret
+                  key: POSTGRES_PASSWORD
+
+      volumes:
+        - name: postgres-volume
+          hostPath:
+            path: /data
+            type: DirectoryOrCreate
+  replicas: 2
+  selector:
+    matchLabels:
+      type: pod-pg

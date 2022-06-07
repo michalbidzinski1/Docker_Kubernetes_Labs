@@ -1,0 +1,27 @@
+Dane zostały nienaruszone.
+mkl1337@DESKTOP-KVF3EP6:/mnt/d/aSTUDIA/aStudia s4/technologie-chmurowe/lab10/zad03$ kubectl delete pod/postgres-deployment-6dd8d66c46-fxjkx
+pod "postgres-deployment-6dd8d66c46-fxjkx" deleted
+mkl1337@DESKTOP-KVF3EP6:/mnt/d/aSTUDIA/aStudia s4/technologie-chmurowe/lab10/zad03$ kubectl get all
+NAME                                       READY   STATUS    RESTARTS        AGE
+pod/postgres-deployment-6dd8d66c46-88pth   1/1     Running   0               4s
+pod/postgres-deployment-6dd8d66c46-hktxf   1/1     Running   1 (3m35s ago)   4m51s
+
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   4d16h
+
+NAME                                  READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/postgres-deployment   2/2     2            2           4m51s
+
+NAME                                             DESIRED   CURRENT   READY   AGE
+replicaset.apps/postgres-deployment-6dd8d66c46   2         2         2       4m51s
+mkl1337@DESKTOP-KVF3EP6:/mnt/d/aSTUDIA/aStudia s4/technologie-chmurowe/lab10/zad03$ kubectl exec --stdin --tty pod/postgres-deployment-6dd8d66c46-88pth -- /bin/bash
+bash-5.1# su - postgres
+postgres-deployment-6dd8d66c46-88pth:~$ psql
+psql (14.3)
+Type "help" for help.
+
+postgres=# SELECT * FROM my_table;
+  name  |  surname  | age 
+--------+-----------+-----
+ michal | bidzinski |  20
+(1 row)
