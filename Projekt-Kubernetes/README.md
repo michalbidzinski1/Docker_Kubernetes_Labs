@@ -2,11 +2,20 @@
 
 Aby uruchomić wersje produkcyjną należy:
 Przejść do folderu frontend (cd frontend).
+
+```
 Zbudować obraz dockerowy frontendu ( docker build - t mkl1337/kubernetes-frontend:prod-1.0 .)
+```
+
 Przejść do folderu backend (cd backend).
+
+```
 Zbudować obraz dockerowy backendu ( docker build - t mkl1337/kubernetes-backend:prod-1.0 . )
+```
+
 Następnie w głównym folderze należy wywołać komendy:
 
+```
 kubectl create namespace production
 
 kubectl apply -f ./production/backend/
@@ -14,6 +23,7 @@ kubectl apply -f ./production/frontend/
 kubectl apply -f ./production/mongo/
 kubectl apply -f ./production/redis/
 kubectl apply -f ./production/ingress/
+```
 
 Aplikacja dostępna będzie pod:
 
@@ -27,11 +37,20 @@ kubectl delete persistentvolume mongo-pv-prod
 
 Aby uruchomić wersje dla developmentu należy:
 Przejść do folderu frontend (cd frontend).
+
+```
 Zbudować obraz dockerowy frontendu ( docker build - t mkl1337/kubernetes-frontend:dev-1.0 .)
+```
+
 Przejść do folderu backend (cd backend).
+
+```
 Zbudować obraz dockerowy backendu ( docker build - t mkl1337/kubernetes-backend:dev-1.0 . )
+```
+
 Następnie w głównym folderze należy wywołać komendy:
 
+```
 kubectl create namespace development
 
 kubectl apply -f ./development/backend/
@@ -39,6 +58,7 @@ kubectl apply -f ./development/frontend/
 kubectl apply -f ./development/mongo/
 kubectl apply -f ./development/redis/
 kubectl apply -f ./development/ingress/
+```
 
 Aplikacja dostępna będzie pod:
 
