@@ -30,5 +30,5 @@ spec:
           configMap:
             name: frontend-config
             items:
-              - key: "web.properties"
+              - key: "frontend.properties"
                 path: "config.js"

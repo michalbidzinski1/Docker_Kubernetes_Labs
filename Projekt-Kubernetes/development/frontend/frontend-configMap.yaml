@@ -6,5 +6,5 @@ metadata:
   namespace: development
 
 data:
-  web.properties: |
+  frontend.properties: |
     window.BACKEND_HOST= "http://localhost/development/backend/"
